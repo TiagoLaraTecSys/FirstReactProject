@@ -1,21 +1,42 @@
-import React from 'react';
-import logo from './logo.svg';
-import './App.css';
-import Tiago from './component/Tiago';
+import React, { Component } from 'react';
 
-function App() {
+import './App.css';
+
+
+class App extends Component{
+  
+  constructor(props){
+    super(props)
+    this.state = {
+        name: "Tiago Ribeiro"
+    }
+
+    this.changestate = this.changestate.bind(this);
+    this.resetstate = this.resetstate.bind(this);
+}
+
+changestate(){
+  this.setState({
+    name: "Tiago Mudança de State"
+  })
+}
+
+resetstate(){
+  this.setState({
+    name: "Tiago Ribeiro"
+  })
+}
+render() {
   return (
     <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Meu projeto em REACT
-        </p>
-        <Tiago></Tiago>
-      </header>
-      
+      <div>
+        <button onClick={this.changestate}>Mudar ESTADO</button>
+        <button onClick={this.resetstate}>Resetar ESTADO</button>
+      </div>
+      {this.state.name}
     </div>
   );
+}
 }
 
 export default App;

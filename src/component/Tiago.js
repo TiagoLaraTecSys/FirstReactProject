@@ -2,6 +2,7 @@ import React, { Component } from 'react';
 import User from './User';
 import photo from '../userfoto.png'
 class Tiago extends Component{
+
     render(){
         return(
             <div>
