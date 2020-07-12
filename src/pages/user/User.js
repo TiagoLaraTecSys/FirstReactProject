@@ -1,6 +1,6 @@
 import React ,{Component} from 'react'
 import UserForm from './UserForm';
-
+import { connect } from 'react-redux'
 class User extends Component{
 
     render(){
@@ -27,4 +27,9 @@ class User extends Component{
         );
     }
 }
-export default User
+
+const mapStateToProps = state => ({
+
+})
+
+export default connect(mapStateToProps)(User);
