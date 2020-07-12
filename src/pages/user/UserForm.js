@@ -10,10 +10,10 @@ const UserFormFun = props =>{
     const submit = (data, submitUserAction) => {submitUserAction(data)}
     return(
         <form onSubmit={handleSubmit((fields) => submit(fields, submitUserAction))}>
-            <label>Name</label>
-            <Field type="text" component="input" name="name"/>
             <label>Email</label>
             <Field type="email" component="input" name="email"/>
+            <label>Senha</label>
+            <Field type="password" component="input" name="senha"/>
             <button type="submit">Submit</button>
         </form>
     );
