@@ -1,69 +1,30 @@
 import React, { Component } from 'react';
 
 import './App.css';
-import List from './component/List';
+import { Link, Route } from 'react-router-dom';
+import routeConfig from './routesConfig';
 
 
-class App extends Component{
-  
-  constructor(props){
-    super(props)
-    this.state = {
-        name: "Tiago Ribeiro",
-        email: "laratecsys@gmail.com",
+class App extends Component {
 
-    }
-
-    this.changestate = this.changestate.bind(this);
-    this.resetstate = this.resetstate.bind(this);
-    this.changeinput = this.changeinput.bind(this);
-}
-
-changestate(){
-  this.setState({
-    name: "Tiago Mudança de State"
-  })
-}
-
-resetstate(){
-  this.setState({
-    name: "Tiago Ribeiro"
-  })
-}
-
-changeinput(event){
-  let target = event.target
-  let index  = target.name
-  this.setState({
-    [index]: target.value
-  })
-}
-
-render() {
-  return (
-    <div className="App">
+  render() {
+    return (
       <div>
-        <button onClick={this.changestate}>Mudar ESTADO</button>
-        <button onClick={this.resetstate}>Resetar ESTADO</button>
+        <div className="App">
+          <Link to="/" >Home</Link>
+          <Link to="/user">User</Link>
+        </div>
+        {routeConfig.map((value, key) => {
+          return <Route
+            key={key}
+            path={value.path}
+            component={value.component}
+            exact={value.exact}
+          ></Route>
+        })}
       </div>
-      <div>
-        <form>
-          <label>Nome
-            <input  type="text" name="name" value={this.state.name} onChange={this.changeinput}>
-            </input>
-          </label>
-          <label>Email 
-            <input type="email" name="email" value={this.state.email} onChange={this.changeinput}>
-            </input>            
-          </label>
-        </form>
-        {this.state.name} - {this.state.email}
-        <List></List>
-      </div>
-      
-    </div>
-  );
-}
+    );
+  }
 }
 
 export default App;

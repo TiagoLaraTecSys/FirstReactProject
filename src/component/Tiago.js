@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import User from './User';
+import User from './Users';
 import photo from '../userfoto.png'
 class Tiago extends Component{
 
