@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 
 import './App.css';
+import List from './component/List';
 
 
 class App extends Component{
@@ -57,6 +58,7 @@ render() {
           </label>
         </form>
         {this.state.name} - {this.state.email}
+        <List></List>
       </div>
       
     </div>
