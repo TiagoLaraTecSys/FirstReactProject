@@ -1,6 +1,6 @@
 
 export const submitUserAction = (data) => {
-    let url = "n"
+    let url = "https://inpaktaservice.herokuapp.com/login"
     fetch(url, {
         method: "POST",
         headers: {
